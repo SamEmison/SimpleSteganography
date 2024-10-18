@@ -32,12 +32,6 @@ void Steganography::readImage(string fileName) {
   //Reads the maximum color value
   inputFile >> maxColor;
 
-  //Prints for debugging purposes
-  cout << "Magic Number: " << magicNumber << endl;
-  cout << "Width: " << width << ", Height: " << height << endl;
-  cout << "Max Color: " << maxColor << endl;
-
-  
   //Reads the color data
   int colorValue;
   while (inputFile >> colorValue) {

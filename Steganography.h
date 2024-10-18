@@ -1,4 +1,8 @@
 /**
+ * The class for all the methods of encoding and decoding ppm image files
+ *
+ * @class 
+/**
  * @file Steganography.h
  * @author Sam Emison and Cole Belew
  * @date 2024-10-17
