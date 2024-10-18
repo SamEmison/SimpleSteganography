@@ -10,23 +10,24 @@
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
 
-#include<vector>
+#include <vector>
+#include <string> 
 
 class Steganography {
  private:
-  string magicNumber;
+  std::string magicNumber;
   int width;
   int height;
   int maxColor;
-  vector<int> colorData;
-  string cipherText;
+  std::vector<int> colorData;
+  std::string cipherText;
   int getNthBit(char cipherChar, int n);
 
  public:
-  void readImage(string fileName);
-  void printImage(string fileName);
-  void readCipherText(string fileName);
-  void printCipherText(string fileName);
+  void readImage(std::string fileName);
+  void printImage(std::string fileName);
+  void readCipherText(std::string fileName);
+  void printCipherText(std::string fileName);
   void cleanImage();
   void encipher();
   void decipher();
