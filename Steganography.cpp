@@ -121,7 +121,7 @@ void Steganography::decipher() {
 
   for (size_t i =0; i < colorData.size(); i++) {
     if (i % 3 == 0) {
-      currentChar = (currentChar << 1) | (colorData[i] & 1):
+      currentChar = (currentChar << 1) | (colorData[i] & 1);
 	bitCount++;
 
       //If there is 8 bits, form the character
