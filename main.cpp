@@ -35,6 +35,7 @@ int main() {
     cin >> inputText;
     stego.readCipherText(inputText);
 
+
     cout << "Enter output PPM file name: ";
     cin >> outputPPM;
     stego.cleanImage();

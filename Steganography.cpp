@@ -32,6 +32,7 @@ void Steganography::readImage(string fileName) {
   //Reads the maximum color value
   inputFile >> maxColor;
 
+  //Prints for debugging purposes
   cout << "Magic Number: " << magicNumber << endl;
   cout << "Width: " << width << ", Height: " << height << endl;
   cout << "Max Color: " << maxColor << endl;
@@ -109,13 +110,15 @@ void Steganography::cleanImage() {
 
 //Encodes the ciphertext into the image's color data
 void Steganography::encipher() {
-  size_t textIndex = 0;
-  for (size_t i = 0; i < colorData.size() && textIndex < cipherText.length(); i++) {
-    if (i % 3 == 0) {
-      colorData[i] = (colorData[i] & ~1) | getNthBit(cipherText[textIndex], 0);
-      textIndex++;
+  size_t textIndex = 0; // Index for the text to encode
+  for (size_t i = 0; i < colorData.size() && textIndex < cipherText.length(); i += 8) {
+    char ch = cipherText[textIndex];
+    for (int bitIndex = 0; bitIndex < 8; ++bitIndex) {
+      colorData[i + bitIndex] = (colorData[i + bitIndex] & ~1) | getNthBit(ch, 7 - bitIndex);
     }
-  }
+    
+    textIndex++; // Move to the next character in the cipherText
+    }
 }
 
 //Decodes the ciphertext from the image's color data
