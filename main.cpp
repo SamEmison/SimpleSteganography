@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Sam Emison
+ * @author Sam Emison & Cole Belew
  * @date 2024-10-17
  * @brief Main
  * 
@@ -24,6 +24,7 @@ int main() {
 
   cin >> choice;
 
+  //Encoding
   if (choice == 1) {
     string inputPPM, inputText, outputPPM;
 
@@ -45,7 +46,8 @@ int main() {
     cout << "Encoding Complete! " << endl;
     cout << "Encoded image saved as: " << outputPPM << endl;
   }
-  
+
+  //Decoding
   else if (choice == 2) {
     string inputPPM, outputText;
 
@@ -55,8 +57,6 @@ int main() {
 
     string decodedText = stego.decipher();
     cout << "Decoded Text: " << decodedText << endl;
-    
-
     
     cout << "Enter output text file name: ";
     cin >> outputText;
