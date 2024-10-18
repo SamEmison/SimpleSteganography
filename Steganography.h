@@ -30,7 +30,7 @@ class Steganography {
   void printCipherText(std::string fileName);
   void cleanImage();
   void encipher();
-  void decipher();
+  std::string decipher();
 };
 
 #endif // STEGANOGRAPHY_H

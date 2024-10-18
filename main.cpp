@@ -52,11 +52,15 @@ int main() {
     cin >> inputPPM;
     stego.readImage(inputPPM);
 
+    string decodedText = stego.decipher();
+    cout << "Decoded Text: " << decodedText << endl;
+    
+
+    
     cout << "Enter output text file name: ";
     cin >> outputText;
-    stego.decipher();
+    
     stego.printCipherText(outputText);
-
     cout << "Decoding Complete!" << endl;
     cout << "Decoded text saved as: " << outputText << endl;
   }

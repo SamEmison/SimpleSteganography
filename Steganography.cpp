@@ -114,24 +114,17 @@ void Steganography::encipher() {
 }
 
 //Decodes the ciphertext from the image's color data
-void Steganography::decipher() {
-  cipherText.clear();
-  char currentChar = 0;
-  int bitCount = 0;
-
-  for (size_t i =0; i < colorData.size(); i++) {
-    if (i % 3 == 0) {
-      currentChar = (currentChar << 1) | (colorData[i] & 1);
-	bitCount++;
-
-      //If there is 8 bits, form the character
-      if (bitCount == 8) { 
-	cipherText += currentChar;
-	currentChar = 0; //Reset currentChar
-	bitCount = 0; //Reset bit count
-      }
+string Steganography::decipher() {
+    cipherText.clear();
+    for (size_t i = 0; i < colorData.size(); i += 8) {
+        char ch = 0;
+        for (int j = 0; j < 8; ++j) {
+            ch |= (getNthBit(colorData[i + j], 0) << (7 - j));
+        }
+        if (ch == '\0') break;
+        cipherText += ch;
     }
-  }
+    return cipherText;
 }
 
 //Helper method to get the nth bit of a character
